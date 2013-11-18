@@ -1,0 +1,33 @@
+# express-mongoose-starter
+
+A bare-bones starter template using [Marionette](http://marionettejs.com/) and [RequireJS](http://requirejs.org/). Includes minimal [Bower](http://bower.io/), [Grunt](http://gruntjs.com/), and [Travis CI](http://about.travis-ci.org/) configurations. [Mocha](http://visionmedia.github.io/mocha/) (with [Chai](http://chaijs.com/)) tests included, but feel free to replace with your preferred test framework.
+
+## Requirements:
+
+* [Node.js](http://nodejs.org/download/)
+
+## Installation:
+
+```bash
+$ git clone git://github.com/aduth/marionette-require-starter ./my-app
+$ cd my-app
+$ npm install
+```
+
+## Running
+
+Start the application using the npm `start` command:
+
+```bash
+$ npm start
+```
+
+You can view the application in your browser by navigating to [http://localhost:3000/](http://localhost:3000/)
+
+## Testing
+
+Test your application using the npm `test` command:
+
+```bash
+$ npm test
+```

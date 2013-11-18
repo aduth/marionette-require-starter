@@ -1,0 +1,21 @@
+{
+  "name": "marionette-require-starter",
+  "version": "1.0.0",
+  "description": "A bare-bones starter template using Marionette and RequireJS.",
+  "private": true,
+  "author": {
+    "name": "Andrew Duthie",
+    "email": "andrew@andrewduthie.com",
+    "url": "http://www.andrewduthie.com/"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "connect": "~2.11.0",
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-mocha": "~0.4.1"
+  }
+}
