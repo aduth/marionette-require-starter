@@ -1,0 +1,17 @@
+{
+  "name": "marionette-require-starter",
+  "version": "1.0.0",
+  "homepage": "https://github.com/aduth/marionette-require-starter",
+  "authors": [
+    "Andrew Duthie <aduthie7@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "handlebars": "~1.1.2",
+    "hbs": "~0.4.0",
+    "jquery": "~2.0.3",
+    "marionette": "~1.2.3",
+    "requirejs": "~2.1.9"
+  }
+}
