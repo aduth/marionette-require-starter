@@ -5,7 +5,7 @@ A bare-bones starter template using [Marionette](http://marionettejs.com/) and [
 ## Requirements:
 
 * [Node.js](http://nodejs.org/download/)
-* [Grunt](http://gruntjs.com/) (`npm install -g bower`)
+* [Grunt](http://gruntjs.com/) (`npm install -g grunt-cli`)
 * [Bower](http://bower.io/) (`npm install -g bower`)
 
 ## Installation:
