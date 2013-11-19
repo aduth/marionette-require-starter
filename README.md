@@ -34,3 +34,5 @@ Test your application using the npm `test` command:
 ```bash
 $ npm test
 ```
+
+[![Build Status](https://travis-ci.org/aduth/marionette-require-starter.png?branch=master)](https://travis-ci.org/aduth/marionette-require-starter)
