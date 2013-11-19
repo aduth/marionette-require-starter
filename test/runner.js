@@ -33,7 +33,7 @@ require.config({
 });
 
 require([
-  'entry'
+  'runner'
 ], function() {
 
   // Load specs

@@ -1,6 +1,6 @@
 require.config({
 
-  deps: ['entry'],
+  deps: ['runner'],
 
   paths: {
     jquery: 'vendor/jquery/jquery',
