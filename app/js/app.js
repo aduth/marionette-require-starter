@@ -4,13 +4,13 @@ define([
   'router'
 ], function(Backbone, Marionette, AppRouter) {
 
-  var app = new Marionette.Application();
+  var App = new Marionette.Application();
 
-  app.on('initialize:after', function() {
+  App.on('initialize:after', function() {
     Backbone.history.start({ pushState: true });
     var router = new AppRouter();
   });
 
-  return app;
+  return App;
 
 });

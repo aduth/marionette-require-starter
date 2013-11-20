@@ -1,9 +1,9 @@
 define([
   'marionette',
   'app'
-], function(Marionette, app) {
+], function(Marionette, App) {
 
-  var Book = app.module('Book');
+  var Book = App.module('Book');
 
   Book.Router = Marionette.AppRouter.extend({
     appRoutes: {
