@@ -6,6 +6,10 @@ define([
 
   var App = new Marionette.Application();
 
+  App.addRegions({
+    mainRegion: '#mainRegion'
+  });
+
   App.on('initialize:after', function() {
     Backbone.history.start({ pushState: true });
     var router = new AppRouter();

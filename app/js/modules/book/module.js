@@ -1,6 +1,8 @@
 define([
   'marionette',
-  'app'
+  'app',
+  'modules/book/list/views',
+  'entities/book'
 ], function(Marionette, App) {
 
   var Book = App.module('Book');
@@ -13,8 +15,14 @@ define([
 
   var API = {
     listBooks: function() {
-      // NYI: List books
-      console.log('List books');
+      var booksRequest = App.request('book:entities');
+      $.when(booksRequest).done(function(books) {
+        var booksView = new Book.List.CollectionView({
+          collection: books
+        });
+
+        App.mainRegion.show(booksView);
+      });
     }
   };
 
