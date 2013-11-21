@@ -7,8 +7,14 @@ require.config({
     underscore: 'vendor/underscore/underscore',
     backbone: 'vendor/backbone/backbone',
     marionette: 'vendor/marionette/lib/backbone.marionette',
-    Handlebars: 'vendor/handlebars/handlebars.amd',
-    hbs: 'vendor/hbs/hbs'
+    handlebars: 'vendor/handlebars/handlebars',
+    hbs: 'vendor/hbs/hbs',
+    json2: 'vendor/hbs/hbs/json2',
+    i18nprecompile: 'vendor/hbs/hbs/i18nprecompile'
+  },
+
+  hbs: {
+    disableI18n: true
   },
 
   shim: {
@@ -22,6 +28,9 @@ require.config({
     marionette: {
       deps: ['jquery', 'underscore', 'backbone'],
       exports: 'Marionette'
+    },
+    handlebars: {
+      exports: 'Handlebars'
     }
   }
 
