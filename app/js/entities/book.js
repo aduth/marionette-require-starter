@@ -9,7 +9,9 @@ define([
   // Entities
   //==============================
 
-  Entities.Book = Backbone.Model.extend({ });
+  Entities.Book = Backbone.Model.extend({
+    urlRoot: '/api/book/'
+  });
 
   Entities.Books = Backbone.Collection.extend({
     model: Entities.Book,
