@@ -32,7 +32,7 @@ define([
           defer.resolve(data);
         },
         error: function(data) {
-          defer.resolve(undefined);
+          defer.reject();
         }
       });
 
@@ -48,7 +48,7 @@ define([
           defer.resolve(data);
         },
         error: function(data) {
-          defer.resolve(undefined);
+          defer.reject();
         }
       });
 
