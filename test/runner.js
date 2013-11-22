@@ -39,7 +39,7 @@ require([
   // Load specs
   require([
     'spec/test.app',
-    'spec/test.book'
+    'spec/test.repository'
   ], function() {
     window.mocha.run();
   });

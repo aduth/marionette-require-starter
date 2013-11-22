@@ -5,7 +5,7 @@ define([
 
   var AppRouter = Backbone.Router.extend({
     autoload: {
-      'book/*': 'book'
+      'repository/*': 'repository'
     },
 
     initialize: function() {
