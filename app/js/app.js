@@ -12,7 +12,7 @@ define([
 
   App.on('initialize:after', function() {
     Backbone.history.start({ pushState: true });
-    var router = new AppRouter();
+    App.Router = new AppRouter();
   });
 
   return App;
