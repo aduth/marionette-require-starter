@@ -7,10 +7,16 @@ require.config({
     underscore: 'vendor/underscore/underscore',
     backbone: 'vendor/backbone/backbone',
     marionette: 'vendor/marionette/lib/backbone.marionette',
-    Handlebars: 'vendor/handlebars/handlebars.amd',
+    handlebars: 'vendor/handlebars/handlebars',
     hbs: 'vendor/hbs/hbs',
+    json2: 'vendor/hbs/hbs/json2',
+    i18nprecompile: 'vendor/hbs/hbs/i18nprecompile',
 
     spec: '../../test/spec'
+  },
+
+  hbs: {
+    disableI18n: true
   },
 
   shim: {
@@ -25,6 +31,9 @@ require.config({
       deps: ['jquery', 'underscore', 'backbone'],
       exports: 'Marionette'
     },
+    handlebars: {
+      exports: 'Handlebars'
+    },
     mocha: {
       exports: 'mocha'
     }
@@ -33,8 +42,13 @@ require.config({
 });
 
 require([
-  'runner'
-], function() {
+  'backbone',
+  'app'
+], function(Backbone, App) {
+
+  App.start();
+  Backbone.history.stop();
+  Backbone.history.start({ pushState: false });
 
   // Load specs
   require([
