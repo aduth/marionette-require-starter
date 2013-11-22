@@ -8,6 +8,10 @@ define([
       'repository/*': 'repository'
     },
 
+    routes: {
+      '': 'defaultToRepository'
+    },
+
     initialize: function() {
       var moduleLoader = function(path, module) {
         return this.loadModule(path, module);
@@ -17,6 +21,10 @@ define([
         var module = this.autoload[path];
         this.route(path, module, moduleLoader.call(this, path, module));
       }
+    },
+
+    defaultToRepository: function() {
+      this.navigate('repository/', { trigger: true });
     },
 
     loadModule: function(path, module) {
