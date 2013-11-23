@@ -34,11 +34,13 @@ define([
       var repositoryRequest = App.request('repository:entity', owner, name);
 
       $.when(repositoryRequest).done(function(repository) {
+        var layout = new Repository.Item.Layout();
+        App.mainRegion.show(layout);
+
         var repositoryView = new Repository.Item.ItemView({
           model: repository
         });
-
-        App.mainRegion.show(repositoryView);
+        layout.content.show(repositoryView);
       });
 
       return repositoryRequest;
