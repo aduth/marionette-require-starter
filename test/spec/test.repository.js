@@ -2,13 +2,13 @@ define([
   'app',
   'entities/repository',
   'modules/repository/module'
-], function (App, Entities) {
+], function (app, Entities) {
   describe('repository', function() {
     describe('repository:show:list', function() {
       var repositoriesViewRequest;
 
       before(function() {
-        repositoriesViewRequest = App.request('repository:show:list');
+        repositoriesViewRequest = app.request('repository:show:list');
       });
 
       it('should resolve the returned promise', function(done) {
@@ -19,7 +19,7 @@ define([
 
       it('should display a list of 10 items', function(done) {
         $.when(repositoriesViewRequest).done(function() {
-          expect(App.mainRegion.$el.find('li').length).to.equal(10);
+          expect(app.mainRegion.$el.find('li').length).to.equal(10);
           done();
         });
       });
@@ -29,7 +29,7 @@ define([
       var repositoryViewRequest;
 
       before(function() {
-        repositoryViewRequest = App.request('repository:show:item', 'aduth', 'marionette-require-starter');
+        repositoryViewRequest = app.request('repository:show:item', 'aduth', 'marionette-require-starter');
       });
 
       it('should resolve the returned promise', function(done) {
@@ -40,7 +40,7 @@ define([
 
       it('should display the correct heading text', function(done) {
         $.when(repositoryViewRequest).done(function() {
-          expect(App.mainRegion.$el.find('h1').text()).to.equal('marionette-require-starter');
+          expect(app.mainRegion.$el.find('h1').text()).to.equal('marionette-require-starter');
           done();
         });
       });
@@ -50,7 +50,7 @@ define([
       var repositoryRequest;
 
       before(function() {
-        repositoryRequest = App.request('repository:entity', 'aduth', 'marionette-require-starter');
+        repositoryRequest = app.request('repository:entity', 'aduth', 'marionette-require-starter');
       });
 
       it('should resolve the returned promise', function(done) {
@@ -71,7 +71,7 @@ define([
       var repositoriesRequest;
 
       before(function() {
-        repositoriesRequest = App.request('repository:entities');
+        repositoriesRequest = app.request('repository:entities');
       });
 
       it('should resolve the returned promise', function(done) {

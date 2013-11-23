@@ -4,9 +4,9 @@ define([
   'modules/repository/list/views',
   'modules/repository/item/views',
   'entities/repository'
-], function(Marionette, App) {
+], function(Marionette, app) {
 
-  var Repository = App.module('Repository');
+  var Repository = app.module('Repository');
 
   Repository.Router = Marionette.AppRouter.extend({
     appRoutes: {
@@ -17,25 +17,25 @@ define([
 
   var API = {
     listRepositories: function() {
-      var repositoriesRequest = App.request('repository:entities');
+      var repositoriesRequest = app.request('repository:entities');
 
       $.when(repositoriesRequest).done(function(repositories) {
         var repositoriesView = new Repository.List.CollectionView({
           collection: repositories
         });
 
-        App.mainRegion.show(repositoriesView);
+        app.mainRegion.show(repositoriesView);
       });
 
       return repositoriesRequest;
     },
 
     showRepository: function(owner, name) {
-      var repositoryRequest = App.request('repository:entity', owner, name);
+      var repositoryRequest = app.request('repository:entity', owner, name);
 
       $.when(repositoryRequest).done(function(repository) {
         var layout = new Repository.Item.Layout();
-        App.mainRegion.show(layout);
+        app.mainRegion.show(layout);
 
         var repositoryView = new Repository.Item.ItemView({
           model: repository
@@ -53,13 +53,13 @@ define([
     });
   });
 
-  App.reqres.setHandler('repository:show:list', function() {
-    App.Router.navigate('/repository/');
+  app.reqres.setHandler('repository:show:list', function() {
+    app.Router.navigate('/repository/');
     return API.listRepositories();
   });
 
-  App.reqres.setHandler('repository:show:item', function(owner, name) {
-    App.Router.navigate('/repository/' + owner + '/' + name);
+  app.reqres.setHandler('repository:show:item', function(owner, name) {
+    app.Router.navigate('/repository/' + owner + '/' + name);
     return API.showRepository(owner, name);
   });
 

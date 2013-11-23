@@ -1,9 +1,9 @@
 define([
   'app',
   'backbone'
-], function(App, Backbone) {
+], function(app, Backbone) {
 
-  var Entities = App.module('Entities');
+  var Entities = app.module('Entities');
 
   //==============================
   // Entities
@@ -68,11 +68,11 @@ define([
   // Application handlers
   //==============================
 
-  App.reqres.setHandler('repository:entity', function(owner, name) {
+  app.reqres.setHandler('repository:entity', function(owner, name) {
     return API.getRepository(owner, name);
   });
 
-  App.reqres.setHandler('repository:entities', function() {
+  app.reqres.setHandler('repository:entities', function() {
     return API.getRepositories();
   });
 

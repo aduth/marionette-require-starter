@@ -3,9 +3,9 @@ define([
   'app',
   'hbs!modules/repository/item/templates/layout',
   'hbs!modules/repository/item/templates/item'
-], function(Marionette, App, tmplRepositoryLayout, tmplRepositoryItem) {
+], function(Marionette, app, tmplRepositoryLayout, tmplRepositoryItem) {
 
-  var Repository = App.module('Repository');
+  var Repository = app.module('Repository');
 
   Repository.Item = { };
 
@@ -21,7 +21,7 @@ define([
     },
 
     returnToList: function() {
-      App.request('repository:show:list');
+      app.request('repository:show:list');
     }
   });
 

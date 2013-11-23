@@ -2,9 +2,9 @@ define([
   'marionette',
   'app',
   'hbs!modules/repository/list/templates/item'
-], function(Marionette, App, tmplRepositoryItem) {
+], function(Marionette, app, tmplRepositoryItem) {
 
-  var Repository = App.module('Repository');
+  var Repository = app.module('Repository');
 
   Repository.List = { };
 

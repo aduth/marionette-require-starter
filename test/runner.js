@@ -44,9 +44,9 @@ require.config({
 require([
   'backbone',
   'app'
-], function(Backbone, App) {
+], function(Backbone, app) {
 
-  App.start();
+  app.start();
   Backbone.history.stop();
   Backbone.history.start({ pushState: false });
 

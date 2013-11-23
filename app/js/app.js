@@ -4,17 +4,17 @@ define([
   'router'
 ], function(Backbone, Marionette, AppRouter) {
 
-  var App = new Marionette.Application();
+  var app = new Marionette.Application();
 
-  App.addRegions({
+  app.addRegions({
     mainRegion: '#mainRegion'
   });
 
-  App.on('initialize:after', function() {
+  app.on('initialize:after', function() {
     Backbone.history.start({ pushState: true });
-    App.Router = new AppRouter();
+    app.Router = new AppRouter();
   });
 
-  return App;
+  return app;
 
 });
