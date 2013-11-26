@@ -14,7 +14,7 @@ define([
   });
 
   Repository.List.CollectionView = Marionette.CollectionView.extend({
-    tagName: 'ul',
+    tagName: 'ol',
     itemView: Repository.List.ItemView
   });
 
