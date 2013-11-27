@@ -7,7 +7,8 @@ define([
   var app = new Marionette.Application();
 
   app.addRegions({
-    mainRegion: '#mainRegion'
+    listRegion: '#listRegion',
+    contentRegion: '#contentRegion'
   });
 
   app.on('initialize:after', function() {

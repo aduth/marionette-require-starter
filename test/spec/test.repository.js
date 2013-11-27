@@ -19,7 +19,7 @@ define([
 
       it('should display a list of 10 items', function(done) {
         $.when(repositoriesViewRequest).done(function() {
-          expect(app.mainRegion.$el.find('li').length).to.equal(10);
+          expect(app.listRegion.$el.find('li').length).to.equal(10);
           done();
         });
       });
@@ -40,7 +40,7 @@ define([
 
       it('should display the correct heading text', function(done) {
         $.when(repositoryViewRequest).done(function() {
-          expect(app.mainRegion.$el.find('h1').text()).to.equal('marionette-require-starter');
+          expect(app.contentRegion.$el.find('h1').text()).to.equal('marionette-require-starter');
           done();
         });
       });
@@ -55,13 +55,21 @@ define([
 
       it('should resolve the returned promise', function(done) {
         $.when(repositoryRequest).done(function(repository) {
-          done()
+          done();
         });
       });
 
       it('should be a Repository model', function(done) {
         $.when(repositoryRequest).always(function(repository) {
           expect(repository).to.be.an.instanceof(Entities.Repository);
+          done();
+        });
+      });
+
+      it('should contain the specified property values', function(done) {
+        $.when(repositoryRequest).done(function(repository) {
+          expect(repository.get('owner').login).to.equal('aduth');
+          expect(repository.get('name')).to.equal('marionette-require-starter');
           done();
         });
       });
@@ -76,7 +84,7 @@ define([
 
       it('should resolve the returned promise', function(done) {
         $.when(repositoriesRequest).done(function(repositories) {
-          done()
+          done();
         });
       });
 

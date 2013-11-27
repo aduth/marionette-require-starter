@@ -24,7 +24,7 @@ define([
           collection: repositories
         });
 
-        app.mainRegion.show(repositoriesView);
+        app.listRegion.show(repositoriesView);
       });
 
       return repositoriesRequest;
@@ -35,7 +35,7 @@ define([
 
       $.when(repositoryRequest).done(function(repository) {
         var layout = new Repository.Item.Layout();
-        app.mainRegion.show(layout);
+        app.contentRegion.show(layout);
 
         var repositoryView = new Repository.Item.ItemView({
           model: repository
@@ -47,20 +47,28 @@ define([
     }
   };
 
-  Repository.addInitializer(function() {
-    Repository.router = new Repository.Router({
-      controller: API
-    });
-  });
-
   app.reqres.setHandler('repository:show:list', function() {
-    app.Router.navigate('/repository/');
     return API.listRepositories();
   });
 
   app.reqres.setHandler('repository:show:item', function(owner, name) {
     app.Router.navigate('/repository/' + owner + '/' + name);
     return API.showRepository(owner, name);
+  });
+
+  app.reqres.setHandler('repository:shown:item', function() {
+    if (typeof app.contentRegion.currentView !== 'undefined' &&
+      typeof app.contentRegion.currentView.content.currentView !== 'undefined') {
+      return app.contentRegion.currentView.content.currentView.model;
+    }
+  });
+
+  Repository.addInitializer(function() {
+    app.request('repository:show:list');
+
+    Repository.router = new Repository.Router({
+      controller: API
+    });
   });
 
   return Repository;
