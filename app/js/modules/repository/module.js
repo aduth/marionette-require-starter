@@ -48,11 +48,13 @@ define([
   };
 
   app.reqres.setHandler('repository:show:list', function() {
+    app.vent.trigger('repository:show:list');
     return API.listRepositories();
   });
 
   app.reqres.setHandler('repository:show:item', function(owner, name) {
     app.Router.navigate('/repository/' + owner + '/' + name);
+    app.vent.trigger('repository:show:item', owner, name);
     return API.showRepository(owner, name);
   });
 
