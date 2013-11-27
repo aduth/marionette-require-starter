@@ -5,11 +5,7 @@ define([
 ], function (app, Entities) {
   describe('repository', function() {
     describe('repository:show:list', function() {
-      var repositoriesViewRequest;
-
-      before(function() {
-        repositoriesViewRequest = app.request('repository:show:list');
-      });
+      var repositoriesViewRequest = app.request('repository:show:list');
 
       it('should resolve the returned promise', function(done) {
         $.when(repositoriesViewRequest).done(function() {
@@ -26,11 +22,7 @@ define([
     });
 
     describe('repository:show:item', function() {
-      var repositoryViewRequest;
-
-      before(function() {
-        repositoryViewRequest = app.request('repository:show:item', 'aduth', 'marionette-require-starter');
-      });
+      var repositoryViewRequest = app.request('repository:show:item', 'aduth', 'marionette-require-starter');
 
       it('should resolve the returned promise', function(done) {
         $.when(repositoryViewRequest).done(function() {
@@ -47,11 +39,7 @@ define([
     });
 
     describe('repository:entity', function() {
-      var repositoryRequest;
-
-      before(function() {
-        repositoryRequest = app.request('repository:entity', 'aduth', 'marionette-require-starter');
-      });
+      var repositoryRequest = app.request('repository:entity', 'aduth', 'marionette-require-starter');
 
       it('should resolve the returned promise', function(done) {
         $.when(repositoryRequest).done(function(repository) {
@@ -76,11 +64,7 @@ define([
     });
 
     describe('repository:entities', function() {
-      var repositoriesRequest;
-
-      before(function() {
-        repositoriesRequest = app.request('repository:entities');
-      });
+      var repositoriesRequest = app.request('repository:entities');
 
       it('should resolve the returned promise', function(done) {
         $.when(repositoriesRequest).done(function(repositories) {
