@@ -29,6 +29,13 @@ define([
     template: tmplRepositoryItem
   });
 
+  Repository.Item.NoneSelectedView = Marionette.View.extend({
+    render: function() {
+      this.$el.html('Select a repository from the left panel.');
+      return this;
+    }
+  });
+
   return Repository;
 
 });

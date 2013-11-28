@@ -44,6 +44,15 @@ define([
       });
 
       return repositoryRequest;
+    },
+
+    showNoRepositorySelected: function() {
+      var noneSelectedView = new Repository.Item.NoneSelectedView();
+      app.contentRegion.show(noneSelectedView);
+
+      var defer = $.Deferred();
+      defer.resolve();
+      return defer.promise();
     }
   };
 
@@ -58,8 +67,14 @@ define([
     return API.showRepository(owner, name);
   });
 
+  app.reqres.setHandler('repository:show:nonitem', function() {
+    app.vent.trigger('repository:show:nonitem');
+    return API.showNoRepositorySelected();
+  });
+
   app.reqres.setHandler('repository:shown:item', function() {
     if (typeof app.contentRegion.currentView !== 'undefined' &&
+      app.contentRegion.currentView instanceof Repository.Item.ItemView &&
       typeof app.contentRegion.currentView.content.currentView !== 'undefined') {
       return app.contentRegion.currentView.content.currentView.model;
     }
@@ -67,6 +82,7 @@ define([
 
   Repository.addInitializer(function() {
     app.request('repository:show:list');
+    app.request('repository:show:nonitem');
 
     Repository.router = new Repository.Router({
       controller: API

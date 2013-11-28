@@ -38,6 +38,16 @@ define([
       });
     });
 
+    describe('repository:show:nonitem', function() {
+      it('should display text indicating instructions to select', function(done) {
+        var noneSelectedRequest = app.request('repository:show:nonitem');
+        $.when(noneSelectedRequest).done(function() {
+          expect(app.contentRegion.$el.text()).to.equal('Select a repository from the left panel.');
+          done();
+        });
+      });
+    });
+
     describe('repository:entity', function() {
       var repositoryRequest = app.request('repository:entity', 'aduth', 'marionette-require-starter');
 
