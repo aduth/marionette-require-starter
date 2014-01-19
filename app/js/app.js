@@ -12,8 +12,16 @@ define([
   });
 
   app.on('initialize:after', function() {
-    Backbone.history.start({ pushState: true });
-    app.Router = new AppRouter();
+    var modules = ['repository'].map(function(module) {
+      return 'modules/' + module + '/module';
+    });
+
+    require(modules, function() {
+      app.Router = new AppRouter();
+      if (!Backbone.History.started) {
+        Backbone.history.start({ pushState: true });
+      }
+    });
   });
 
   return app;

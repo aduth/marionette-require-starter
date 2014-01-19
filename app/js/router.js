@@ -4,35 +4,25 @@ define([
 ], function(Backbone, Marionette) {
 
   var AppRouter = Backbone.Router.extend({
-    autoload: {
-      'repository/*': 'repository'
-    },
-
     routes: {
-      '': 'defaultToRepository'
+      '': 'home',
+      '*undefined': '404'
     },
 
-    initialize: function() {
-      var moduleLoader = function(path, module) {
-        return this.loadModule(path, module);
-      };
-
-      for (var path in this.autoload) {
-        var module = this.autoload[path];
-        this.route(path, module, moduleLoader.call(this, path, module));
-      }
-    },
-
-    defaultToRepository: function() {
+    home: function() {
       this.navigate('repository/', { trigger: true });
     },
 
-    loadModule: function(path, module) {
-      require(['modules/' + module + '/module'], function() {
-        // Manually re-trigger history handler
-        Backbone.history.loadUrl(Backbone.history.fragment);
-      });
-    },
+    404: function(fragment) {
+      if (!_.any(Backbone.history.handlers, function(handler) {
+        if (handler.route.test(fragment) && handler.route.toString() !== '/^(.*?)$/') {
+          handler.callback(fragment);
+          return true;
+        }
+      })) {
+        this.navigate('', { trigger: true });
+      }
+    }
   });
 
   return AppRouter;
