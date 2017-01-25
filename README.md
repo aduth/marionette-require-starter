@@ -1,6 +1,6 @@
 # marionette-require-starter
 
-A bare-bones starter template using [Marionette](http://marionettejs.com/) and [RequireJS](http://requirejs.org/). Includes minimal [Bower](http://bower.io/), [Grunt](http://gruntjs.com/), and [Travis CI](http://about.travis-ci.org/) configurations. [Mocha](http://visionmedia.github.io/mocha/) (with [Chai](http://chaijs.com/)) tests included, but feel free to replace with your preferred test framework.
+A bare-bones starter template using [Marionette](http://marionettejs.com/) and [RequireJS](http://requirejs.org/). Includes minimal [Bower](http://bower.io/), [Grunt](http://gruntjs.com/), and [Travis CI](http://about.travis-ci.org/) configurations. [Mocha](http://mochajs.org/) (with [Chai](http://chaijs.com/)) tests included, but feel free to replace with your preferred test framework.
 
 ## Requirements:
 
